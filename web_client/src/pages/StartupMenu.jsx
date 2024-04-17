@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
 import { routes } from "@consts";
+import logoBird from "/img/logo-bird.png";
 
 export const StartupMenu = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-700 flex items-center justify-center">
       <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg max-w-lg">
         <div className="text-center">
-          <img
-            src="/public/logo-bird.png"
-            alt="Logo bird"
-            className="h-40 mx-auto mb-4"
-          />
+          <img src={logoBird} alt="Logo bird" className="h-40 mx-auto mb-4" />
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             Вітаємо у Грифф
           </h1>
