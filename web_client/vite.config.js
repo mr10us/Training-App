@@ -1,7 +1,43 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import path from "path";
+import react from "@vitejs/plugin-react";
+// import { visualizer } from "rollup-plugin-visualizer";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [react()], //splitVendorChunkPlugin(), visualizer()
+  esbuild: {
+    loader: "jsx",
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        ".js": "jsx",
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      "@components": path.resolve(__dirname, "src/components"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@consts": path.resolve(__dirname, "src/consts.js"),
+    },
+  },
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       manualChunks(id) {
+  //         if (
+  //           id.includes("react-pdf") ||
+  //           id.includes("pdfjs-dist/build/pdf.js")
+  //         ) {
+  //           return "react-pdf";
+  //         }
+  //         if (id.includes("antd")) {
+  //           return "ant-design";
+  //         }
+  //       },
+  //     },
+  //   },
+  // },
+});
