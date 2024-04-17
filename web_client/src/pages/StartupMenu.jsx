@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import { routes } from "@consts";
 import logoBird from "/img/logo-bird.png";
+import { useEffect } from "react";
+import { useTelegram } from "@hooks/useTelegram";
 
 export const StartupMenu = () => {
+  const { tg } = useTelegram();
+
+  useEffect(() => {
+    tg.ready();
+    tg.expand();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-700 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg">
