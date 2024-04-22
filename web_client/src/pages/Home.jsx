@@ -23,17 +23,14 @@ export const Home = () => {
               <p className="text-gray-100 text-2xl font-bold">
                 {name[0].toUpperCase()}
               </p>
-              <p>{user?.photo_url || "nety"}</p>
             </div>
           )}
-          <p className="text-gray-100 py font-bold text-4xl">
+          <p className="text-gray-100 py font-bold text-3xl">
             Привіт, <br />
-            <span className="text-6xl text-yellow-300 ml-4">{name}</span>!
+            <span className="text-5xl text-yellow-300 ml-4">{name}</span>!
           </p>
         </div>
-        <div className="flex justify-center items-center">
-          <MenuButtons />
-        </div>
+        <MenuButtons />
       </div>
     </MainLayout>
   );
