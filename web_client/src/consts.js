@@ -1,6 +1,7 @@
 export const routes = {
   HOME: "/home/",
-  CHOOSE: "/choose/",
+  TRAININGS_LIST: "/trainings-list/",
+  TRAINING_PREVIEW: ":trainingID/",
   BMI: "/bmi-calc/",
   SETTINGS: "/settings",
 }

@@ -10,6 +10,7 @@ export const Home = () => {
 
   return (
     <MainLayout>
+      {user?.photo_url}
       <div className="flex flex-col justify-between h-screen">
         <div className="pt-8 px-4">
           {image ? (

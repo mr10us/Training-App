@@ -5,6 +5,7 @@ import { Home } from "@pages/Home";
 import { ChooseTrainingType } from "@pages/ChooseTrainingType";
 import { BMI } from "@pages/BMI";
 import { Settings } from "@pages/Settings";
+import { TrainingPreview } from "@pages/TrainingPreview";
 
 export const router = createBrowserRouter([
   {
@@ -15,10 +16,16 @@ export const router = createBrowserRouter([
     path: routes.HOME,
     element: <Home />,
   },
+
   {
-    path: routes.CHOOSE,
+    path: routes.TRAININGS_LIST,
     element: <ChooseTrainingType />,
   },
+  {
+    path: routes.TRAINING_PREVIEW,
+    element: <TrainingPreview />,
+  },
+
   {
     path: routes.BMI,
     element: <BMI />,
