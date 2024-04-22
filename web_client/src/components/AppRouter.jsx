@@ -16,7 +16,6 @@ export const router = createBrowserRouter([
     path: routes.HOME,
     element: <Home />,
   },
-
   {
     path: routes.TRAININGS_LIST,
     element: <ChooseTrainingType />,
@@ -25,7 +24,6 @@ export const router = createBrowserRouter([
     path: routes.TRAINING_PREVIEW,
     element: <TrainingPreview />,
   },
-
   {
     path: routes.BMI,
     element: <BMI />,

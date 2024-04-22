@@ -3,13 +3,14 @@ import { Navigation } from "@components/UI/Navigation";
 import { TrainingTypeList } from "@components/TrainingTypeList";
 import { FaArrowLeft, FaSort } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { routes } from "@consts";
 
 export const ChooseTrainingType = () => {
   return (
     <MainLayout>
       <div className="flex justify-between m-6 items-center">
         <div>
-          <Link to={-1}>
+          <Link to={routes.HOME}>
             <FaArrowLeft size={"1.5rem"} className="text-yellow-200" />
           </Link>
         </div>
@@ -22,7 +23,7 @@ export const ChooseTrainingType = () => {
       </div>
       <div className="h-5/6">
         <TrainingTypeList>
-          <Link to={"7"}>
+          <Link to={"5/"}>
             <TrainingTypeList.Item
               title={"Тренування ніг"}
               time={"12 хв"}

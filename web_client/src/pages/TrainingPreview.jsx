@@ -1,5 +1,9 @@
+import { MainLayout } from "../layouts/MainLayout"
+
 export const TrainingPreview = () => {
   return (
-    <div>TrainingPreview</div>
+    <MainLayout>
+
+    </MainLayout>
   )
 }

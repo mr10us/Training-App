@@ -10,7 +10,6 @@ export const Home = () => {
 
   return (
     <MainLayout>
-      {user?.photo_url}
       <div className="flex flex-col justify-between h-screen">
         <div className="pt-8 px-4">
           {image ? (
@@ -22,8 +21,9 @@ export const Home = () => {
           ) : (
             <div className="bg-brand-dark flex justify-center items-center rounded-full size-16 mb-3">
               <p className="text-gray-100 text-2xl font-bold">
-                {name[1].toUpperCase()}
+                {name[0].toUpperCase()}
               </p>
+              <p>{user?.photo_url || "nety"}</p>
             </div>
           )}
           <p className="text-gray-100 py font-bold text-4xl">

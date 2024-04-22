@@ -9,7 +9,7 @@ export const MenuButtons = () => {
   return (
     <div className="flex flex-wrap gap-6 w-fit p-8">
       <MenuButton.Link
-        to={routes.CHOOSE}
+        to={routes.TRAININGS_LIST}
         text="Обрати тренування"
         icon={<FaDumbbell size={50} className="text-yellow-300" />}
       />
