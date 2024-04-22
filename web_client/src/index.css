@@ -1,7 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import 'video-react/dist/video-react.css';
 
 body {
-  background: linear-gradient(to bottom, #ffa500, #ff7f00);
+  background: linear-gradient(to bottom, #ffc04b, #ff7f00);
 }

@@ -9,7 +9,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          DEFAULT: "#ffb800",
+          light: "#ffe18c",
+          dark: "#cc9400",
+        },
+      },
+    },
   },
   plugins: [],
 };

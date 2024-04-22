@@ -1,3 +1,3 @@
 export const MainLayout = ({ children }) => {
-  return <div className="min-h-screen">{children}</div>;
+  return <div className="h-screen">{children}</div>;
 };
