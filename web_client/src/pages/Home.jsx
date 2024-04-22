@@ -11,7 +11,7 @@ export const Home = () => {
   return (
     <MainLayout>
       <div className="flex flex-col justify-between h-screen">
-        <div className="pt-8 px-4">
+        <div className="pt-8 px-4 flex flex-row-reverse justify-between">
           {image ? (
             <img
               className="size-16 object-contain"
@@ -25,7 +25,7 @@ export const Home = () => {
               </p>
             </div>
           )}
-          <p className="text-gray-100 py font-bold text-3xl">
+          <p className="text-gray-100 py font-bold text-3xl mt-4">
             Привіт, <br />
             <span className="text-5xl text-yellow-300 ml-4">{name}</span>!
           </p>
