@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Navigation = ({ children }) => {
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-brand p-2 w-1/2 h-12 flex justify-center items-center rounded-2xl">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-brand w-1/2 h-12 flex justify-center items-center rounded-2xl">
       {children}
     </div>
   );
@@ -12,7 +12,7 @@ export const Navigation = ({ children }) => {
 
 Navigation.Home = () => {
   return (
-    <Link to={routes.HOME}>
+    <Link to={routes.HOME} className="w-full m-2 flex justify-center items-center h-full">
       <FaHome size={"1.5rem"} className="text-yellow-200"/>
     </Link>
   );
