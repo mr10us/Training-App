@@ -24,3 +24,27 @@ body::-webkit-scrollbar {
 .scroller > * {
   scroll-snap-align: start;
 }
+
+.ant-form-item-label > label {
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  color: rgb(243 244 246) !important;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))
+    drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+}
+
+.video-react-big-play-button {
+  border: none !important;
+  border-radius: 50% !important;
+  height: 8rem !important;
+  width: 8rem !important;
+  left: 45% !important;
+}
+.video-react-big-play-button:before {
+  top: 50% !important;
+  left: 50% !important;
+  scale: 2;
+  transform: translate(-25%, -25%) !important;
+  width: fit-content !important;
+  height: fit-content !important;
+}

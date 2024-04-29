@@ -6,6 +6,50 @@ import { Link } from "react-router-dom";
 import { routes } from "@consts";
 
 export const ChooseTrainingType = () => {
+  const trainings = [
+    {
+      title: "Тренування ніг",
+      time: "12 хв",
+      rate: 4.3,
+      type: "Новачок",
+      img: "/img/testTraining.jpg",
+    },
+    {
+      title: "Тренування ніг",
+      time: "12 хв",
+      rate: 4.3,
+      type: "Новачок",
+      img: "/img/testTraining.jpg",
+    },
+    {
+      title: "Тренування ніг",
+      time: "12 хв",
+      rate: 4.3,
+      type: "Новачок",
+      img: "/img/testTraining.jpg",
+    },
+    {
+      title: "Тренування ніг",
+      time: "12 хв",
+      rate: 4.3,
+      type: "Новачок",
+      img: "/img/testTraining.jpg",
+    },
+    {
+      title: "Тренування ніг",
+      time: "12 хв",
+      rate: 4.3,
+      type: "Новачок",
+      img: "/img/testTraining.jpg",
+    },
+    {
+      title: "Тренування ніг",
+      time: "12 хв",
+      rate: 4.3,
+      type: "Новачок",
+      img: "/img/testTraining.jpg",
+    },
+  ];
   return (
     <MainLayout>
       <div className="flex justify-between m-6 items-center">
@@ -22,45 +66,7 @@ export const ChooseTrainingType = () => {
         </div>
       </div>
       <div className="h-5/6">
-        <TrainingTypeList>
-          <Link to={"5/"}>
-            <TrainingTypeList.Item
-              title={"Тренування ніг"}
-              time={"12 хв"}
-              rate={4.3}
-              type={"Новачок"}
-              img={"/img/testTraining.jpg"}
-            />
-          </Link>
-          <TrainingTypeList.Item
-            title={"Тренування рук"}
-            time={"322 хв"}
-            rate={5}
-            type={"Спортсмен"}
-            img={"/img/testTraining.jpg"}
-          />
-          <TrainingTypeList.Item
-            title={"Тренування грудей"}
-            time={"666 хв"}
-            rate={5}
-            type={"Середній"}
-            img={"/img/testTraining.jpg"}
-          />
-          <TrainingTypeList.Item
-            title={"Тренування на все тіло"}
-            time={"180 хв"}
-            rate={5}
-            type={"Новачок"}
-            img={"/img/testTraining.jpg"}
-          />
-          <TrainingTypeList.Item
-            title={"Кардіо"}
-            time={"32 хв"}
-            rate={5}
-            type={"Новачок"}
-            img={"/img/testTraining.jpg"}
-          />
-        </TrainingTypeList>
+        <TrainingTypeList items={trainings}/>
       </div>
       <div className="h-1/6">
         <Navigation>

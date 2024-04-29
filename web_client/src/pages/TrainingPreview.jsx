@@ -2,7 +2,7 @@ import { Button } from "@components/UI/Button";
 import { MainLayout } from "../layouts/MainLayout";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Rating } from "@mui/material";
+import { Rating } from "@components/UI/Rating";
 import { routes } from "@consts";
 
 export const TrainingPreview = () => {

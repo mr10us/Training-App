@@ -1,3 +1,3 @@
-export const MainLayout = ({ children }) => {
-  return <div className="h-screen">{children}</div>;
+export const MainLayout = (props) => {
+  return <div {...props} className="h-screen">{props.children}</div>;
 };

@@ -1,9 +1,19 @@
-import { Rating } from "@mui/material";
+import { Rating } from "./UI/Rating";
 
-export const TrainingTypeList = ({ children }) => {
+export const TrainingTypeList = ({ items }) => {
+  if (items.length === 0) return;
+
   return (
     <div className="flex flex-col gap-5 overflow-y-scroll h-full m-4 scroller">
-      {children}
+      {items.map((item) => (
+        <TrainingTypeList.Item
+          title={item.title}
+          time={item.time}
+          rate={item.rate}
+          type={item.type}
+          img={item.img}
+        />
+      ))}
     </div>
   );
 };
