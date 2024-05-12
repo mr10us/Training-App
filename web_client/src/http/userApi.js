@@ -18,8 +18,8 @@ export const getUser = async (userID) => {
   return response.data;
 };
 
-export const login = async (userID) => {
-  const response = await $host.post(`/api/user/login/`, { userID });
+export const login = async (chatID) => {
+  const response = await $host.post(`/api/user/login/`, { chatID });
 
   handleErrors(response);
 
