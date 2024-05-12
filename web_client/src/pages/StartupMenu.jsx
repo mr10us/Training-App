@@ -29,11 +29,12 @@ export const StartupMenu = () => {
 
   return (
     <div>
-      {user}
-    </div>
+    {/* Вывод объекта user */}
+    <pre>{JSON.stringify(user, null, 2)}</pre>
+  </div>
   );
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-700 flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg">
         <div className="text-center">
           <img src={logoBird} alt="Logo bird" className="h-40 mx-auto mb-4" />
