@@ -34,6 +34,9 @@ export const StartupMenu = () => {
           <p className="text-gray-600 mb-6">
             Я Ваш віртуальний тренер і готовий вести Вас до нових перемог!
           </p>
+          <div>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+          </div>
         </div>
         <div className="grid grid-cols-1 gap-4">
           <Link
