@@ -23,6 +23,8 @@ export const StartupMenu = () => {
     isSuccess && localStorage.setItem("token", data.token);
   }, [isSuccess, data]);
 
+  if (isLoading) return <div>{"isLoading:" + isLoading}</div>
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg">
