@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { routes } from "@consts";
 import logoBird from "/img/logo-bird.png";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useTelegram } from "@hooks/useTelegram";
 import { useQuery } from "@tanstack/react-query";
 import { login } from "@http/userApi";
@@ -18,6 +18,7 @@ export const StartupMenu = () => {
     queryKey: ["login"],
     queryFn: () => login(user.id),
   });
+  
   useMemo(() => {
     isSuccess && localStorage.setItem("token", data.token);
   }, [isSuccess, data]);
