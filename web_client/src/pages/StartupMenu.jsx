@@ -14,25 +14,14 @@ export const StartupMenu = () => {
     tg.expand();
   }, []);
 
-  // const { isLoading, isSuccess, data, isError, error } = useQuery({
-  //   queryKey: ["login"],
-  //   queryFn: () => {
-  //     if (!user.id) {
-  //       return {};
-  //     }
-  //     return login(user.id);
-  //   },
-  // });
-  // useMemo(() => {
-  //   isSuccess && localStorage.setItem("token", data.token);
-  // }, [isSuccess, data]);
+  const { isLoading, isSuccess, data, isError, error } = useQuery({
+    queryKey: ["login"],
+    queryFn: () => login(user.id),
+  });
+  useMemo(() => {
+    isSuccess && localStorage.setItem("token", data.token);
+  }, [isSuccess, data]);
 
-  return (
-    <div>
-    {/* Вывод объекта user */}
-    <pre>{JSON.stringify(user, null, 2)}</pre>
-  </div>
-  );
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg">
