@@ -6,7 +6,7 @@
 
 body {
   background: linear-gradient(to bottom, #ffc04b, #ff7f00);
-  overflow-y: hidden;
+  background-attachment: fixed;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   font-family: "Ubuntu", sans-serif;

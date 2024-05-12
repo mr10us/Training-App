@@ -6,7 +6,8 @@
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
-      "@consts": ["consts.js"]
+      "@http/*": ["http/*"],
+      "@consts": ["consts.js"],
     }
   }
 }

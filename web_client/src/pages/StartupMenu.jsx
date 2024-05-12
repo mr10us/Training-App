@@ -1,16 +1,28 @@
 import { Link } from "react-router-dom";
 import { routes } from "@consts";
 import logoBird from "/img/logo-bird.png";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useTelegram } from "@hooks/useTelegram";
+import { useQuery } from "@tanstack/react-query";
+import { getUser } from "@http/userApi";
 
 export const StartupMenu = () => {
-  const { tg } = useTelegram();
+  const { tg, user } = useTelegram();
 
   useEffect(() => {
     tg.ready();
     tg.expand();
   }, []);
+
+  const { isLoading, isSuccess, data, isError, error } = useQuery({
+    queryKey: ["login"],
+    queryFn: ({ signal }) => {
+      getUser(signal, user.id);
+    },
+  });
+  useMemo(() => {
+    isSuccess && localStorage.setItem("token", data.token);
+  }, [isSuccess, data]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-700 flex items-center justify-center">
@@ -22,6 +34,7 @@ export const StartupMenu = () => {
           </h1>
           <p className="text-gray-600 mb-6">
             Я Ваш віртуальний тренер і готовий вести Вас до нових перемог!
+            {localStorage.getItem("token")}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4">

@@ -4,7 +4,8 @@ import { App, Button, Flex, Form, Input, Upload } from "antd";
 import { FaPlus } from "react-icons/fa";
 import { BigPlayButton, ControlBar, Player } from "video-react";
 import { PageHeader } from "@components/PageHeader";
-import BackButton from "@components/UI/BackButton";
+import { useMutation } from "@tanstack/react-query";
+import { createExercise } from "@http/exerciseApi";
 
 const normFile = (e) => {
   if (Array.isArray(e)) {
@@ -19,15 +20,6 @@ export const CreateExercise = () => {
   const { message } = App.useApp();
   const createExerciseForm = Form.useForm();
 
-  const handleSaveVideo = (info) => {
-    if (info.file.status !== "uploading") {
-    }
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  };
   const handleFetchVideo = ({ file, onSuccess, onError }) => {
     if (file.type.startsWith("video/")) {
       onSuccess();
@@ -38,71 +30,91 @@ export const CreateExercise = () => {
     }
   };
 
-  const handleCreateExercise = () => {
-    console.log("done");
+  const handleCreateExercise = ({title, content}) => {
+    if (!video) return message.error("Завантажте відео");
+  
+    createExercise(null, title, content, video.file);
   };
 
+  const mutation = useMutation({
+    mutationFn: handleCreateExercise,
+    onError: (error) => {
+      message.error(error.message);
+    },
+  });
+
   return (
-    <MainLayout style={{ overflowX: "scroll" }}>
-      <Flex justify="space-around" vertical style={{ height: "100%" }}>
-        <Flex align="center" justify="center">
-          <div className="-translate-x-5 translate-y-0.5">
-            <BackButton
-              withIcon
-              withText={false}
-              withBG={false}
-              withPadding={false}
-            />
-          </div>
-          <PageHeader size={"large"} text={"Create Exercise"} />
-        </Flex>
-        <Form
-          size="large"
-          layout="vertical"
-          className="m-8"
-          labelCol={{ push: 1 }}
-          onFinish={handleCreateExercise}
-          preserve
+    <MainLayout>
+      <PageHeader size={"large"} title={"Створити вправу"} />
+      <Form
+        size="large"
+        layout="vertical"
+        className="m-8"
+        labelCol={{ push: 1 }}
+        requiredMark={false}
+        onFinish={mutation.mutate}
+        preserve
+      >
+        <Form.Item
+          name="title"
+          label="Назва"
+          rules={[
+            {
+              required: true,
+              message: "Введіть назву вправи",
+            },
+          ]}
         >
-          <Form.Item name="title" label="Назва">
-            <Input placeholder="Введіть назву вправи" className="shadow" />
-          </Form.Item>
-          <Form.Item name="content" label="Опис">
-            <Input placeholder="Опис вправи" className="shadow" />
-          </Form.Item>
-          <Form.Item
-            valuePropName="fileList"
-            getValueFromEvent={normFile}
-            label="Відео"
-          >
-            {video?.url ? (
-              <Player src={video.url}>
-                <ControlBar disableCompletely />
-                <BigPlayButton position="center" />
-              </Player>
-            ) : (
-              <Upload
-                customRequest={handleFetchVideo}
-                accept="video/*"
-                showUploadList={false}
-                multiple={false}
-                listType="picture-card"
+          <Input placeholder="Введіть назву вправи" className="shadow" />
+        </Form.Item>
+        <Form.Item
+          name="content"
+          label="Опис"
+          rules={[
+            {
+              required: true,
+              message: "Введіть опис вправи",
+            },
+          ]}
+        >
+          <Input.TextArea
+            rows={3}
+            placeholder="Опис вправи"
+            className="shadow"
+          />
+        </Form.Item>
+        <Form.Item
+          valuePropName="fileList"
+          getValueFromEvent={normFile}
+          label="Відео"
+        >
+          {video?.url ? (
+            <Player src={video.url}>
+              <ControlBar disableCompletely />
+              <BigPlayButton position="center" />
+            </Player>
+          ) : (
+            <Upload
+              customRequest={handleFetchVideo}
+              accept="video/*"
+              showUploadList={false}
+              multiple={false}
+              listType="picture-card"
+            >
+              <button
+                className="flex flex-col items-center gap-2"
+                onClick={(e) => e.preventDefault()}
               >
-                <button
-                  className="flex flex-col items-center gap-2"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <FaPlus size={30} className="text-yellow-300 drop-shadow" />
-                  <p className="text-gray-100 drop-shadow">завантажити відео</p>
-                </button>
-              </Upload>
-            )}
-          </Form.Item>
-          <Button type="primary" block htmlType="submit" className="shadow my-8">
-            Створити
-          </Button>
-        </Form>
-      </Flex>
+                <FaPlus size={30} className="text-yellow-300 drop-shadow" />
+                <p className="text-gray-100 drop-shadow">завантажити відео</p>
+              </button>
+            </Upload>
+          )}
+        </Form.Item>
+        <Button type="primary" block htmlType="submit" className="shadow my-8">
+          Створити
+        </Button>
+      </Form>
     </MainLayout>
   );
 };
