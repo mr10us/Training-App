@@ -4,7 +4,7 @@ import logoBird from "/img/logo-bird.png";
 import { useEffect, useMemo } from "react";
 import { useTelegram } from "@hooks/useTelegram";
 import { useQuery } from "@tanstack/react-query";
-import { getUser } from "@http/userApi";
+import { login } from "@http/userApi";
 
 export const StartupMenu = () => {
   const { tg, user } = useTelegram();
