@@ -35,7 +35,8 @@ export const StartupMenu = () => {
             Я Ваш віртуальний тренер і готовий вести Вас до нових перемог!
           </p>
           <div>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
+            <pre>{JSON.stringify(user, null, 2)}</pre>
+            {isSuccess && <p>Success</p>}
           </div>
         </div>
         <div className="grid grid-cols-1 gap-4">
