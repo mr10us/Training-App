@@ -19,7 +19,7 @@ export const getUser = async (userID) => {
 };
 
 export const login = async (userID) => {
-  const response = await $host.post(`/api/login/`, { userID });
+  const response = await $host.post(`/api/user/login/`, { userID });
 
   handleErrors(response);
 
