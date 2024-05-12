@@ -24,8 +24,13 @@ export const StartupMenu = () => {
     isSuccess && localStorage.setItem("token", data.token);
   }, [isSuccess, data]);
 
-  if (isError) return <h1>{"isError: " + isError}{"error:" + error }</h1>
-  if (isLoading) return <h1>{"isLoading: " + isLoading}</h1>
+  return (
+    <>
+      {isSuccess && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      {isError && <div>Error: {error.message}</div>}
+      {isLoading && <div>Loading...</div>}
+    </>
+  );
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-700 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg">
