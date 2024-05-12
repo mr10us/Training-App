@@ -14,24 +14,22 @@ export const StartupMenu = () => {
     tg.expand();
   }, []);
 
-  const { isLoading, isSuccess, data, isError, error } = useQuery({
-    queryKey: ["login"],
-    queryFn: () => {
-      if (!user.id) {
-        return {};
-      }
-      return login(user.id);
-    },
-  });
-  useMemo(() => {
-    isSuccess && localStorage.setItem("token", data.token);
-  }, [isSuccess, data]);
+  // const { isLoading, isSuccess, data, isError, error } = useQuery({
+  //   queryKey: ["login"],
+  //   queryFn: () => {
+  //     if (!user.id) {
+  //       return {};
+  //     }
+  //     return login(user.id);
+  //   },
+  // });
+  // useMemo(() => {
+  //   isSuccess && localStorage.setItem("token", data.token);
+  // }, [isSuccess, data]);
 
   return (
     <>
-      {isSuccess && <pre>{JSON.stringify(data, null, 2)}</pre>}
-      {isError && <div>Error: {error.message}</div>}
-      {isLoading && <div>Loading...</div>}
+      {user}
     </>
   );
   return (
