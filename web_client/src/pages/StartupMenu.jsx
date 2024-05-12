@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { routes } from "@consts";
 import logoBird from "/img/logo-bird.png";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useTelegram } from "@hooks/useTelegram";
 import { useQuery } from "@tanstack/react-query";
 import { login } from "@http/userApi";
@@ -28,9 +28,9 @@ export const StartupMenu = () => {
   // }, [isSuccess, data]);
 
   return (
-    <>
+    <div>
       {user}
-    </>
+    </div>
   );
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-orange-700 flex items-center justify-center">
