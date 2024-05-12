@@ -34,7 +34,6 @@ export const StartupMenu = () => {
           </h1>
           <p className="text-gray-600 mb-6">
             Я Ваш віртуальний тренер і готовий вести Вас до нових перемог!
-            {localStorage.getItem("token")}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4">
