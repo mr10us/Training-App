@@ -17,7 +17,10 @@ export const StartupMenu = () => {
   const { isLoading, isSuccess, data, isError, error } = useQuery({
     queryKey: ["login"],
     queryFn: () => {
-      login(user.id);
+      if (!user.id) {
+        return {};
+      }
+      return login(user.id);
     },
   });
   useMemo(() => {
